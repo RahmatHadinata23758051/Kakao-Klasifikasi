@@ -8,12 +8,10 @@ CocoaFMDB/
 Dataset/
 Master_Dataset/
 data/
+Dataset_Split/
 
-# 2. Output & Images (Grafik dan Sample Preview)
-*.png
-*.jpg
-*.jpeg
-outputs/
+
+# 2. Output & Models (Visualisasi .png diijinkan, Folder outputs/ diijinkan)
 models/
 *.h5
 *.tflite
