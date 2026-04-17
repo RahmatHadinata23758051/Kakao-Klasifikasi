@@ -11,12 +11,7 @@ data/
 Dataset_Split/
 
 
-# 2. Output & Models (Visualisasi .png diijinkan, Folder outputs/ diijinkan)
-models/
-*.h5
-*.tflite
-*.onnx
-*.pb
+
 
 # 3. Python & Environment
 __pycache__/
