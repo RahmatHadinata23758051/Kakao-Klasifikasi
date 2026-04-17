@@ -1,0 +1,39 @@
+# ========================
+# KAKAO CLASSIFICATION .GITIGNORE
+# ========================
+
+# 1. Dataset & Data Folders (JANGAN DI-COMMIT KARENA UKURANNYA GB)
+Cocoa Maturity Dataset Filtered.v2i.folder/
+CocoaFMDB/
+Dataset/
+Master_Dataset/
+data/
+
+# 2. Output & Images (Grafik dan Sample Preview)
+*.png
+*.jpg
+*.jpeg
+outputs/
+models/
+*.h5
+*.tflite
+*.onnx
+*.pb
+
+# 3. Python & Environment
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.env
+
+# 4. Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# 5. OS & IDE Specifio
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
