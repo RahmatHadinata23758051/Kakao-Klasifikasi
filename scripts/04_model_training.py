@@ -1,5 +1,6 @@
 import os
 import matplotlib.pyplot as plt
+from model_layout import baseline_model_paths
 
 # Handle TensorFlow import gracefully
 try:
@@ -16,10 +17,10 @@ except ImportError:
 current_dir = os.path.dirname(os.path.abspath(__file__))
 base_dir = os.path.abspath(os.path.join(current_dir, ".."))
 split_dir = os.path.join(base_dir, "Dataset_Split")
-models_dir = os.path.join(base_dir, "models")
 outputs_dir = os.path.join(base_dir, "outputs")
+baseline_paths = baseline_model_paths()
 
-os.makedirs(models_dir, exist_ok=True)
+os.makedirs(outputs_dir, exist_ok=True)
 
 print("="*50)
 print("   PHASE 4: MODEL DEVELOPMENT & TRAINING")
@@ -90,7 +91,7 @@ print(f"Total layer dalam model baru: {len(model.layers)}")
 
 # 3. Training & Callbacks
 print("\n--- [3] MEMULAI TRAINING MODEL (BASELINE: 5 EPOCH) ---")
-checkpoint_path = os.path.join(models_dir, "best_kakao_model.keras")
+checkpoint_path = str(baseline_paths["keras_model"])
 checkpoint = ModelCheckpoint(checkpoint_path, monitor='val_accuracy', verbose=1, save_best_only=True, mode='max')
 early_stop = EarlyStopping(monitor='val_loss', patience=3, restore_best_weights=True)
 
