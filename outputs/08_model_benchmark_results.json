@@ -1,0 +1,110 @@
+[
+    {
+        "model_slug": "hog_linear_svm",
+        "display_name": "HSV Histogram + HOG + Linear SVM",
+        "family": "Classical ML",
+        "selected_hyperparameters": {
+            "C": 1.0
+        },
+        "runtime_sec": 327.48,
+        "val_metrics": {
+            "accuracy": 0.7431192660550459,
+            "precision_macro": 0.7248240486699272,
+            "recall_macro": 0.7184689254074526,
+            "f1_macro": 0.7213303198477825,
+            "precision_weighted": 0.7405440455618458,
+            "recall_weighted": 0.7431192660550459,
+            "f1_weighted": 0.7414875268588479
+        },
+        "test_metrics": {
+            "accuracy": 0.7168674698795181,
+            "precision_macro": 0.7052535490945734,
+            "recall_macro": 0.713212176980293,
+            "f1_macro": 0.7084088750755418,
+            "precision_weighted": 0.7163971115188951,
+            "recall_weighted": 0.7168674698795181,
+            "f1_weighted": 0.7160233786739811
+        }
+    },
+    {
+        "model_slug": "mobilenetv2_embeddings",
+        "display_name": "MobileNetV2 Embeddings + Logistic Regression",
+        "family": "Transfer Learning + Linear Classifier",
+        "selected_hyperparameters": {
+            "C": 0.1
+        },
+        "runtime_sec": 4.53,
+        "val_metrics": {
+            "accuracy": 0.9174311926605505,
+            "precision_macro": 0.9238731176231175,
+            "recall_macro": 0.9254412659768715,
+            "f1_macro": 0.9246068567447878,
+            "precision_weighted": 0.9170710299724062,
+            "recall_weighted": 0.9174311926605505,
+            "f1_weighted": 0.9172090991717692
+        },
+        "test_metrics": {
+            "accuracy": 0.9367469879518072,
+            "precision_macro": 0.9331898079081915,
+            "recall_macro": 0.9399202515144545,
+            "f1_macro": 0.9364429542926485,
+            "precision_weighted": 0.9370785250109539,
+            "recall_weighted": 0.9367469879518072,
+            "f1_weighted": 0.936821473437993
+        }
+    },
+    {
+        "model_slug": "efficientnetb0_embeddings",
+        "display_name": "EfficientNetB0 Embeddings + Logistic Regression",
+        "family": "Transfer Learning + Linear Classifier",
+        "selected_hyperparameters": {
+            "C": 0.1
+        },
+        "runtime_sec": 4.46,
+        "val_metrics": {
+            "accuracy": 0.9571865443425076,
+            "precision_macro": 0.9592956378942405,
+            "recall_macro": 0.9578007709474538,
+            "f1_macro": 0.9584962932974946,
+            "precision_weighted": 0.957492688489006,
+            "recall_weighted": 0.9571865443425076,
+            "f1_weighted": 0.9572962546821644
+        },
+        "test_metrics": {
+            "accuracy": 0.9518072289156626,
+            "precision_macro": 0.9555290057082173,
+            "recall_macro": 0.9523042711448508,
+            "f1_macro": 0.95389274930245,
+            "precision_weighted": 0.9518887977237505,
+            "recall_weighted": 0.9518072289156626,
+            "f1_weighted": 0.9518316983102689
+        }
+    },
+    {
+        "model_slug": "mobilenetv2_saved_keras",
+        "display_name": "Saved MobileNetV2 Keras Head",
+        "family": "End-to-End Transfer Learning",
+        "selected_hyperparameters": {
+            "source": "models\\mobilenetv2_baseline\\best_kakao_model.keras"
+        },
+        "runtime_sec": 82.7,
+        "val_metrics": {
+            "accuracy": 0.908256880733945,
+            "precision_macro": 0.9032234464392842,
+            "recall_macro": 0.9169202678027997,
+            "f1_macro": 0.9095537650489792,
+            "precision_weighted": 0.9095889366467335,
+            "recall_weighted": 0.908256880733945,
+            "f1_weighted": 0.9084663092894968
+        },
+        "test_metrics": {
+            "accuracy": 0.9156626506024096,
+            "precision_macro": 0.9106097886468913,
+            "recall_macro": 0.913062648569895,
+            "f1_macro": 0.9107588480664491,
+            "precision_weighted": 0.9154538579077509,
+            "recall_weighted": 0.9156626506024096,
+            "f1_weighted": 0.9145749055713922
+        }
+    }
+]
