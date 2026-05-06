@@ -1,5 +1,7 @@
 import os
 import sys
+import json
+from model_layout import baseline_model_paths
 
 try:
     import tensorflow as tf
@@ -9,9 +11,9 @@ except ImportError:
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 base_dir = os.path.abspath(os.path.join(current_dir, ".."))
-models_dir = os.path.join(base_dir, "models")
+baseline_paths = baseline_model_paths()
 
-model_path = os.path.join(models_dir, "best_kakao_model.keras")
+model_path = str(baseline_paths["keras_model"])
 
 print("="*50)
 print("   PHASE 6: EXPORT & DEPLOYMENT PREPARATION")
@@ -32,13 +34,29 @@ converter = tf.lite.TFLiteConverter.from_keras_model(model)
 # Mengaktifkan Opsi Optimisasi (Kuantisasi Timbangan/Weights dari float32 -> int8 dinamis)
 # Membuat ukuran model menyusut sampai 4x lebih ringan & cepat bagi RAM HP
 converter.optimizations = [tf.lite.Optimize.DEFAULT]
-tflite_model = converter.convert()
+tflite_path = str(baseline_paths["tflite_model"])
+try:
+    tflite_model = converter.convert()
+    with open(tflite_path, 'wb') as f:
+        f.write(tflite_model)
+    print(f"   [OK] Model TFLite berhasil dipadatkan dan diekstrak ke: \n        {tflite_path}")
+except Exception as e:
+    if os.path.exists(tflite_path):
+        print(f"   [WARNING] Konversi TFLite gagal, artefak lama dipertahankan: {e}")
+    else:
+        print(f"   [ERROR] Konversi TFLite gagal dan belum ada artefak cadangan: {e}")
+        sys.exit(1)
 
-tflite_path = os.path.join(models_dir, "model_kakao_optimized.tflite")
-with open(tflite_path, 'wb') as f:
-    f.write(tflite_model)
-    
-print(f"   [OK] Model TFLite berhasil dipadatkan dan diekstrak ke: \n        {tflite_path}")
+manifest = {
+    "algorithm": "MobileNetV2 baseline",
+    "artifacts": {
+        "keras_model": str(baseline_paths["keras_model"].relative_to(base_dir)),
+        "tflite_model": str(baseline_paths["tflite_model"].relative_to(base_dir)),
+        "class_indices": str(baseline_paths["class_indices"].relative_to(base_dir)),
+    },
+}
+with open(baseline_paths["manifest"], "w", encoding="utf-8") as f:
+    json.dump(manifest, f, indent=4)
 
 print("\n" + "="*50)
 print("SEMUA FASE SELESAI! MODEL SIAP DISERAHKAN KE TIM PROGRAMMER APP.")
