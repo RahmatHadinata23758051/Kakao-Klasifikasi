@@ -1,0 +1,22 @@
+{
+    "model_slug": "mobilenetv2_embeddings",
+    "algorithm_family": "Transfer Learning + Linear Classifier",
+    "backbone": "mobilenetv2_1.00_224",
+    "preprocess_function": "preprocess_input",
+    "class_names": [
+        "Kematangan",
+        "Matang",
+        "Mentah"
+    ],
+    "input_size": [
+        224,
+        224
+    ],
+    "selected_hyperparameters": {
+        "C": 0.1
+    },
+    "artifacts": {
+        "feature_extractor_weights": "models\\mobilenetv2_embeddings\\feature_extractor.weights.h5",
+        "classifier": "models\\mobilenetv2_embeddings\\classifier.joblib"
+    }
+}

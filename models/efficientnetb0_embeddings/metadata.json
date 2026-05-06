@@ -1,0 +1,22 @@
+{
+    "model_slug": "efficientnetb0_embeddings",
+    "algorithm_family": "Transfer Learning + Linear Classifier",
+    "backbone": "efficientnetb0",
+    "preprocess_function": "preprocess_input",
+    "class_names": [
+        "Kematangan",
+        "Matang",
+        "Mentah"
+    ],
+    "input_size": [
+        224,
+        224
+    ],
+    "selected_hyperparameters": {
+        "C": 0.1
+    },
+    "artifacts": {
+        "feature_extractor_weights": "models\\efficientnetb0_embeddings\\feature_extractor.weights.h5",
+        "classifier": "models\\efficientnetb0_embeddings\\classifier.joblib"
+    }
+}

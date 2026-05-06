@@ -1,0 +1,37 @@
+{
+    "model_slug": "hog_linear_svm",
+    "algorithm_family": "Classical ML",
+    "classifier_type": "LinearSVC",
+    "class_names": [
+        "Kematangan",
+        "Matang",
+        "Mentah"
+    ],
+    "selected_hyperparameters": {
+        "C": 1.0
+    },
+    "preprocessing": {
+        "image_size": [
+            128,
+            128
+        ],
+        "color_space": "HSV histogram",
+        "histogram_bins": [
+            16,
+            16,
+            16
+        ],
+        "hog": {
+            "orientations": 9,
+            "pixels_per_cell": [
+                16,
+                16
+            ],
+            "cells_per_block": [
+                2,
+                2
+            ],
+            "block_norm": "L2-Hys"
+        }
+    }
+}
