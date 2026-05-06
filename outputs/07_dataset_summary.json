@@ -1,0 +1,56 @@
+{
+    "total_images": 3287,
+    "classes": {
+        "Mentah": 1597,
+        "Matang": 1069,
+        "Kematangan": 621
+    },
+    "class_percentages": {
+        "Mentah": 48.59,
+        "Matang": 32.52,
+        "Kematangan": 18.89
+    },
+    "imbalance_ratio_max_to_min": 2.5717,
+    "class_weights_balanced": {
+        "Mentah": 0.6861,
+        "Matang": 1.0249,
+        "Kematangan": 1.7644
+    },
+    "image_format_distribution": {
+        "JPEG": 3287
+    },
+    "resolution": {
+        "width_min": 224,
+        "width_max": 5568,
+        "width_median": 505.0,
+        "height_min": 224,
+        "height_max": 5568,
+        "height_median": 505.0
+    },
+    "aspect_ratio": {
+        "min": 0.45,
+        "max": 2.2222,
+        "median": 1.0
+    },
+    "mean_rgb_by_class": {
+        "Kematangan": {
+            "mean_r": 0.4616,
+            "mean_g": 0.4438,
+            "mean_b": 0.2843
+        },
+        "Matang": {
+            "mean_r": 0.4545,
+            "mean_g": 0.4785,
+            "mean_b": 0.3624
+        },
+        "Mentah": {
+            "mean_r": 0.42,
+            "mean_g": 0.4551,
+            "mean_b": 0.3375
+        }
+    },
+    "exact_duplicate_groups_in_master_dataset": 4,
+    "exact_duplicate_extra_files_in_master_dataset": 4,
+    "cross_split_duplicate_groups": 1,
+    "cross_split_duplicate_extra_files": 1
+}

@@ -1,0 +1,3 @@
+split,class_name,relative_path,md5
+test,Mentah,Dataset_Split\test\Mentah\DS3_Amelonado_DSC_2624.jpg,77de91d62692c43c1c056eb1b795b2b6
+train,Mentah,Dataset_Split\train\Mentah\DS3_Angoleta_DSC_2624.jpg,77de91d62692c43c1c056eb1b795b2b6
