@@ -1,0 +1,15 @@
+{
+    "model_slug": "mobilenetv2_saved_keras",
+    "algorithm_family": "End-to-End Transfer Learning",
+    "backbone": "MobileNetV2",
+    "class_names": [
+        "Kematangan",
+        "Matang",
+        "Mentah"
+    ],
+    "artifacts": {
+        "keras_model": "models\\mobilenetv2_baseline\\best_kakao_model.keras",
+        "tflite_model": "models\\mobilenetv2_baseline\\model_kakao_optimized.tflite",
+        "class_indices": "models\\mobilenetv2_baseline\\class_indices.json"
+    }
+}
