@@ -2,6 +2,7 @@ import os
 import json
 import numpy as np
 import matplotlib.pyplot as plt
+from model_layout import baseline_model_paths
 
 try:
     import seaborn as sns
@@ -20,8 +21,8 @@ except ImportError:
 current_dir = os.path.dirname(os.path.abspath(__file__))
 base_dir = os.path.abspath(os.path.join(current_dir, ".."))
 split_dir = os.path.join(base_dir, "Dataset_Split")
-models_dir = os.path.join(base_dir, "models")
 outputs_dir = os.path.join(base_dir, "outputs")
+baseline_paths = baseline_model_paths()
 
 print("="*50)
 print("   PHASE 5: MODEL EVALUATION (CONFUSION MATRIX)")
@@ -29,11 +30,9 @@ print("="*50)
 
 # 1. Load Model and Indices
 print("\n--- [1] MEMBACA MODEL & KAMUS KELAS ---")
-model_path = os.path.join(models_dir, "best_kakao_model.keras")
-model = tf.keras.models.load_model(model_path)
+model = tf.keras.models.load_model(str(baseline_paths["keras_model"]))
 
-json_path = os.path.join(models_dir, "class_indices.json")
-with open(json_path, "r") as f:
+with open(baseline_paths["class_indices"], "r") as f:
     class_map = json.load(f)
     
 # Map string indices to list ['Kematangan', 'Matang', 'Mentah'] corresponding to 0, 1, 2

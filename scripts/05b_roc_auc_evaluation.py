@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
 from sklearn.preprocessing import label_binarize
 from itertools import cycle
+from model_layout import baseline_model_paths
 
 try:
     import tensorflow as tf
@@ -16,16 +17,16 @@ except ImportError:
 current_dir = os.path.dirname(os.path.abspath(__file__))
 base_dir = os.path.abspath(os.path.join(current_dir, ".."))
 split_dir = os.path.join(base_dir, "Dataset_Split")
-models_dir = os.path.join(base_dir, "models")
 outputs_dir = os.path.join(base_dir, "outputs")
+baseline_paths = baseline_model_paths()
 
 print("="*50)
 print("   ANALISIS LANJUTAN: DETEKSI BIAS (ROC-AUC CURVE)")
 print("="*50)
 
 # 1. Load Model & Class Mapping
-model = tf.keras.models.load_model(os.path.join(models_dir, "best_kakao_model.keras"))
-with open(os.path.join(models_dir, "class_indices.json"), "r") as f:
+model = tf.keras.models.load_model(str(baseline_paths["keras_model"]))
+with open(baseline_paths["class_indices"], "r") as f:
     class_map = json.load(f)
 ordered_classes = [class_map[str(i)] for i in range(len(class_map))]
 n_classes = len(ordered_classes)
