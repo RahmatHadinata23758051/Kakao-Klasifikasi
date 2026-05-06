@@ -1,26 +1,27 @@
 import os
 import json
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from model_layout import baseline_model_paths
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 base_dir = os.path.abspath(os.path.join(current_dir, ".."))
 split_dir = os.path.join(base_dir, "Dataset_Split")
-models_dir = os.path.join(base_dir, "models")
+baseline_paths = baseline_model_paths()
 
-# Re-create generator cuma untuk mengekstrak Index
-datagen = ImageDataGenerator()
-generator = datagen.flow_from_directory(
-    os.path.join(split_dir, 'train'),
-    batch_size=1
+# Ambil label dari nama folder train agar tidak bergantung pada runtime generator TensorFlow.
+train_dir = os.path.join(split_dir, "train")
+class_names = sorted(
+    [
+        entry
+        for entry in os.listdir(train_dir)
+        if os.path.isdir(os.path.join(train_dir, entry))
+    ]
 )
-
-# Ambil penomoran aslinya
-class_map = generator.class_indices
+class_map = {class_name: index for index, class_name in enumerate(class_names)}
 
 # Balik (Invert) menjadi {0: 'Kematangan', 1: 'Matang', 2: 'Mentah'}
 inverted_class_map = {v: k for k, v in class_map.items()}
 
-json_path = os.path.join(models_dir, "class_indices.json")
+json_path = str(baseline_paths["class_indices"])
 with open(json_path, "w") as f:
     json.dump(inverted_class_map, f, indent=4)
 
